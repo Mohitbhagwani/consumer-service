@@ -21,29 +21,29 @@ services:
       - zookeeper
 
 
-  car-parking-persistence-service:
-    container_name: car-parking-persistence-service
-    image: postgres:15-alpine
-    ports:
-      - "5435:5432"
-    environment:
-      - POSTGRES_PASSWORD=postgres
-    volumes:
-      - ./src/main/resources/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
-#
-#  car-parking-service:
-#    container_name: car-parking-service
-#    image: car-parking-service:v1
+#  car-parking-persistence-service:
+#    container_name: car-parking-persistence-service
+#    image: postgres:15-alpine
+#    ports:
+#      - "5435:5432"
+#    environment:
+#      - POSTGRES_PASSWORD=postgres
+#    volumes:
+#      - ./src/main/resources/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+##
+#  consumer-service:
+#    container_name: consumer-service
+#    image: consumer-service:v1
 #    build:
 #      context: .
 #    depends_on:
 #      - kafka
-#      - car-parking-persistence-service
-#    environment:
-#      - SPRING_DATASOURCE_URL=jdbc:postgresql://car-parking-persistence-service:5432/car_parking_system
-#      - SPRING_DATASOURCE_USERNAME=postgres
-#      - SPRING_DATASOURCE_PASSWORD=postgres
-#      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+##      - car-parking-persistence-service
+##    environment:
+##      - SPRING_DATASOURCE_URL=jdbc:postgresql://car-parking-persistence-service:5432/car_parking_system
+##      - SPRING_DATASOURCE_USERNAME=postgres
+##      - SPRING_DATASOURCE_PASSWORD=postgres
+##      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
 #    ports:
 #      - "5005:5005"
-
+#
